@@ -1,0 +1,73 @@
+<html>
+	<head>
+		<title>spredsheet calculator</title>
+		<script>
+			var comission;
+			var profit=0;
+			var loss=0;
+			var nop=0;
+			var nol=0;
+			function start()
+			{
+				 comission=parseInt(prompt("enter the comission rate"));
+			}
+			function fun()
+			{
+				var quantity=parseInt(document.z.t.value);
+				var buy=parseFloat(document.z.t1.value);
+				var sell=parseFloat(document.z.t2.value);
+				//document.z.t.value="";
+				document.z.t1.value="";
+				document.z.t2.value="";
+				var amt;
+				var a=Math.round(sell-buy);
+				amt=Math.round(((sell-buy)*quantity)-comission);
+				if(amt>=0)
+				{
+					profit=profit+amt;
+					nop++;
+				}
+				else
+				{
+					loss=loss+amt;
+					if(Number.isNaN(loss))
+					{
+						alert("loss is nan");
+					}
+					nol++;
+				}
+			}
+			function fun1()
+			{
+				document.write("no of profit making trades is:"+nop+"<br>");
+				document.write("value of profitable trades is:"+profit+"<br>");
+				document.write("no of loss making trades is:"+nol+"<br>");
+				document.write("value of lossable trades is:"+loss);
+			}
+				
+					
+				
+		</script>
+	</head>
+	<body onload="start()">
+		<form name="z">
+		<table border="0">
+			<tr>
+				<th>quantity</th>
+				<th>buy</th>
+				<th>sell</th>
+			</tr>
+			<tr>
+				<td><input type="text" name="t"></td>
+				<td><input type="text" name="t1"></td>
+				<td><input type="text" name="t2"></td>
+			</tr>
+			<tr>
+				<td><button type="button" onclick="fun()">next</button></td>
+				<td><button type="button" onclick="fun1()">finish</button></td>
+			</tr>
+		</table>
+		</form>
+	</body>
+</html>
+			
